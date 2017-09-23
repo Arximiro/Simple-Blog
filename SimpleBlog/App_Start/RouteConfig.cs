@@ -13,6 +13,10 @@ namespace SimpleBlog
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
+            //routes.MapRoute("Home", "", new {controller = "Posts", action = "Index"});
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
