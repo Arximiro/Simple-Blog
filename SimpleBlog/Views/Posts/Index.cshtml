@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Posts";
+}
+
+        <h1>Posts Index</h1>
+    <p>
+        <a href="@Url.Action("login", "Auth")">Click here</a> to login!
+    </p>
+        
+    <p>
+        @Html.ActionLink("CLICK HERE!", "login", "Auth") 2 Log IN!
+</p>   
+
+@section Scripts
+{
+
+    <script>
+        alert("HI!");
+    </script>     
+}

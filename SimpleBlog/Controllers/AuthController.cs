@@ -12,8 +12,7 @@ namespace SimpleBlog.Controllers
         [Route("login")]
         public ActionResult Login()
         {
-            return Content("Login!");
-            //return View();
+            return View();
         }
     }
 }

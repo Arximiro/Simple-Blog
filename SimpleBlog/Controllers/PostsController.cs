@@ -11,8 +11,7 @@ namespace SimpleBlog.Controllers
         [Route("")]
         public ActionResult Index()
         {
-            return Content("Hello World");
-            //return View();
+            return View();
         }
     }
 }
