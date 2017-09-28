@@ -1,6 +1,31 @@
-﻿@{
+﻿@model SimpleBlog.ViewModels.AuthLogin
+@*This gives us access to the ViewModel so we can use the helper methods to access its parameters*@
+
+@{
     ViewBag.Title = "Login";
 }
 
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
 
-<p>THIS IS THE LOGIN VIEW!</p>
+    <div>
+        @Html.LabelFor(x => x.Username)
+        @Html.EditorFor(x => x.Username)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Password)
+        @Html.EditorFor(x => x.Password)
+    </div>
+
+    <div>
+        <input type="submit" value="Login" />
+    </div>
+}
+
+@*<form method="POST">
+        <input type="text" name="Username"/>
+        <input type="password" name="Password"/>
+        <input type="submit" value="Login"/>
+    </form>*@
