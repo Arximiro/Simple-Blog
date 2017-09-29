@@ -10,10 +10,7 @@ namespace SimpleBlog.Infrastructure
 
         public override string[] GetRolesForUser(string username)
         {
-            if (username == "Arx") // This line tells them what users should be considered admins.
-                return new[] {"admin"}; // This line authorizes people to view the admin panel.
-
-            return new string[] {};   // This returns an empty string array if admin user is not found, ie the user has no special roles.
+            return Auth.User.Roles.Select(role => role.Name).ToArray();
         }
 
 
