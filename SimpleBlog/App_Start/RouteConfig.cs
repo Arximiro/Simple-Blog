@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleBlog.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,13 @@ namespace SimpleBlog
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            var namespaces = new[] { typeof(PostsController).Namespace };  // This allows us to specify the namespace so that we can identify controllers
+                                                                           // that share the same name within our routes.
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute("Home", "", new { Controller = "Posts", action = "Index" }, namespaces);
 
             routes.MapRoute(
                 name: "Default",

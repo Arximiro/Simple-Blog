@@ -8,7 +8,7 @@ namespace SimpleBlog.Controllers
 {
     public class PostsController : Controller
     {
-        [Route("")]
+        //[Route("")]
         public ActionResult Index()
         {
             return View();

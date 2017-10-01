@@ -30,7 +30,8 @@
                 @Html.ActionLink("Users", "Index", "Users", new { area = "admin" }, new { })
             </li>
             <li class="pull-right">
-                <a href="http://localhost:51198/">Back to Website</a>
+                @Html.RouteLink("Back to Home", "Home")
+                
             </li>
         </ul>
         @RenderBody()

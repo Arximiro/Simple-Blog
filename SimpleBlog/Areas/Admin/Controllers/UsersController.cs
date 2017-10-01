@@ -24,6 +24,14 @@ namespace SimpleBlog.Areas.Admin.Controllers
             });
         }
 
+
+
+
+
+
+
+
+
         public ActionResult New()
         {
             return View(new UsersNew
@@ -37,11 +45,7 @@ namespace SimpleBlog.Areas.Admin.Controllers
             });
         }
 
-
-
-
-
-
+        
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult New(UsersNew form)
         {
@@ -64,6 +68,11 @@ namespace SimpleBlog.Areas.Admin.Controllers
 
             return RedirectToAction("index");
         }
+
+
+
+
+
 
 
 
@@ -118,6 +127,12 @@ namespace SimpleBlog.Areas.Admin.Controllers
 
 
 
+
+
+
+
+
+
         public ActionResult ResetPassword(int id)
         {
             var user = Database.Session.Load<User>(id);
@@ -155,6 +170,8 @@ namespace SimpleBlog.Areas.Admin.Controllers
 
 
 
+
+
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
@@ -165,6 +182,14 @@ namespace SimpleBlog.Areas.Admin.Controllers
             Database.Session.Delete(user);
             return RedirectToAction("index");
         }
+
+
+
+
+
+
+
+
 
 
         private void SyncRoles(IList<RoleCheckbox> checkboxes, IList<Role> roles)

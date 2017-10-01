@@ -25,6 +25,8 @@ namespace SimpleBlog.App_Start
                .Include("~/scripts/bootstrap.js")
                .Include("~/areas/admin/scripts/forms.js"));
 
+            // It's important the scripts are loaded in this order due to dependencies. Jq val uno depends on Jq val, which depends on Jq. BS depends on Jq etc.
+
             bundles.Add(new ScriptBundle("~/scripts")
                .Include("~/scripts/jquery-3.2.1.js")
                .Include("~/scripts/jquery.validate.js")
