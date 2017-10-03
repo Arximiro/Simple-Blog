@@ -50,7 +50,7 @@ namespace SimpleBlog.Models
             });
 
             Property(x => x.UpdatedAt, x => x.Column("updated_at"));
-            Property(x => x.UpdatedAt, x => x.Column("deleted_at"));
+            Property(x => x.DeletedAt, x => x.Column("deleted_at"));
 
             Bag(x => x.Tags, x =>
             {
