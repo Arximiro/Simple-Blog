@@ -15,7 +15,7 @@ namespace SimpleBlog.Areas.Admin.Controllers
     [SelectedTab("posts")]
     public class PostsController : Controller
     {
-        private const int postsPerPage = 5;
+        private const int postsPerPage = 10;
 
         // GET: Admin/Posts
         public ActionResult Index(int page = 1)

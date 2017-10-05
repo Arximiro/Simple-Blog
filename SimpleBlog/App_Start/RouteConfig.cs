@@ -18,6 +18,12 @@ namespace SimpleBlog
 
             routes.MapMvcAttributeRoutes();
 
+            routes.MapRoute("TagForRealThisTime", "tag/{idAndSlug}", new { controller = "Posts", action = "Tag" }, namespaces);
+            routes.MapRoute("Tag", "tag/{id}-{slug}", new { controller = "Posts", action = "Tag" }, namespaces);
+
+            routes.MapRoute("PostForRealThisTime", "post/{idAndSlug}", new { controller = "Posts", action = "Show" }, namespaces);
+            routes.MapRoute("Post", "post/{id}-{slug}", new { controller = "Posts", action = "Show" }, namespaces);
+
             routes.MapRoute("Home", "", new { Controller = "Posts", action = "Index" }, namespaces);
 
             routes.MapRoute(
