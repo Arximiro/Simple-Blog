@@ -1,0 +1,82 @@
+﻿@model SimpleBlog.ViewModels.LayoutSidebar
+
+
+@{
+    Layout = null;
+}
+
+<div class="panel panel-success">
+    <div class="panel-heading">About Me</div>
+    <div class="panel-body">
+        I am a person that does things.
+    </div>
+</div>
+
+
+@if (Model.Tags.Any())
+{
+    var maxPostsInTag = Model.Tags.Max(t => t.PostCount);
+
+    <div class="panel panel-info tags">
+        <div class="panel-heading">Tags</div>
+        <div class="panel-body">
+            <div class="list-group">
+                @foreach (var tag in Model.Tags)
+                {
+                    var percent = Math.Ceiling((float)tag.PostCount / maxPostsInTag * 100);
+
+                    <a href="@Url.RouteUrl("Tag", new { tag.Id, tag.Slug })" class="list-group-item">
+                        <span class="name">@tag.Name</span>
+                        <span class="badge">@tag.PostCount</span>
+                        <span class="progress">
+                            <span class="progress-bar progress-bar-info" style="width: @percent%"></span>
+                        </span>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.IsLoggedIn && Model.IsAdmin)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">Welcome back, @Model.Username!</div>
+        <div class="panel-body">
+            <div class="btn btn-sm">
+
+                <a href="@Url.Action("Index", "Posts", new { area = "admin" })" class="btn btn-default">View Posts</a>
+                
+                <a href="@Url.Action("New", "Posts", new { area = "admin" })" class="btn btn-default">Create Post</a>
+                
+                <a href="@Url.Action("Index", "Users", new { area = "admin" })" class="btn btn-default">View Users</a>
+                
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (Model.IsLoggedIn && !Model.IsAdmin)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">Welcome back, @Model.Username!</div>
+        <div class="panel-body">
+            <div class="btn btn-sm">
+
+                <a href="@Url.Action("New", "Posts", new { area = "admin" })" class="btn btn-default">Create Post</a>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (!Model.IsLoggedIn)
+{
+    <a class="pull-right" href="@Url.Action("Login", "Auth")">Login</a>
+}
+else
+{
+    <a class="pull-right" href="@Url.Action("Logout", "Auth")">Logout</a>
+}

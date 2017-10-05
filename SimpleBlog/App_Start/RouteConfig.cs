@@ -24,7 +24,9 @@ namespace SimpleBlog
             routes.MapRoute("PostForRealThisTime", "post/{idAndSlug}", new { controller = "Posts", action = "Show" }, namespaces);
             routes.MapRoute("Post", "post/{id}-{slug}", new { controller = "Posts", action = "Show" }, namespaces);
 
-            routes.MapRoute("Home", "", new { Controller = "Posts", action = "Index" }, namespaces);
+            routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" }, namespaces);
+
+            routes.MapRoute("Sidebar", "", new { controller = "Auth", AcTiOn = "Index" }, namespaces);
 
             routes.MapRoute(
                 name: "Default",
