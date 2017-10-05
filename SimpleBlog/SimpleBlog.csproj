@@ -50,6 +50,9 @@
     <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="FluentMigrator, Version=1.6.2.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentMigrator.1.6.2\lib\40\FluentMigrator.dll</HintPath>
     </Reference>
@@ -117,6 +120,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Areas\Admin\Scripts\Forms.js" />
     <Content Include="Areas\Admin\Scripts\PostEditor.js" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
@@ -431,6 +435,7 @@
     <Compile Include="Areas\Admin\ViewModels\Users.cs" />
     <Compile Include="Auth.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Database.cs" />
@@ -473,6 +478,8 @@
     <Content Include="Views\Posts\Show.cshtml" />
     <Content Include="Views\Posts\Tag.cshtml" />
     <Content Include="Views\Layout\SideBar.cshtml" />
+    <Content Include="Views\Errors\NotFound.cshtml" />
+    <Content Include="Views\Errors\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

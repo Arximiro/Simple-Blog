@@ -28,6 +28,9 @@ namespace SimpleBlog
 
             routes.MapRoute("Sidebar", "", new { controller = "Auth", AcTiOn = "Index" }, namespaces);
 
+            routes.MapRoute("Error404", "errors/404", new { controller = "Errors", action = "NotFound" }, namespaces);
+            routes.MapRoute("Error500", "errors/500", new { controller = "Errors", action = "Error" }, namespaces);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
